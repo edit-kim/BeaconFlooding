@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
 		return -1;
     }
     
-    NetworkInterface wlan0 = argv[1];
+    NetworkInterface interface = argv[1];
     PacketSender sender;
 
     vector<string> SSIDList;
@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
     std::ifstream ifs(argv[2]);
 
     if(ifs.fail()){
-        std::cout << "fiail" << std::endl;
+        std::cout << "fail" << std::endl;
         return -1;
     }
 
@@ -55,7 +55,7 @@ int main(int argc, char* argv[]) {
         beacon.rsn_information(RSNInformation::wpa2_psk());
 
         RadioTap packet = RadioTap() / beacon;
-        sender.send(packet, wlan0);
+        sender.send(packet, interface);
         usleep(1);
     }
         
