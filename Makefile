@@ -1,7 +1,7 @@
-all: main
+all: BeaconFlood
 main.o : main.cpp
-main : main.o -ltins
+BeaconFlood : main.o -ltins
 	$(LINK.cc) $^  $(LDLIBS) -o $@
 
 clean:
-	rm -f main *.o
+	rm -f BeaconFlood *.o
